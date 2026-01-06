@@ -30,18 +30,12 @@ from validators.temporal import validate_temporal_consistency
 # DB INITIALIZATION
 # ----------------------------
 def init_db(conn):
-    """
-    Apply schema.sql to the database.
-    """
     schema_path = Path(__file__).resolve().parent.parent / "schema.sql"
     with open(schema_path, "r", encoding="utf-8") as f:
         conn.executescript(f.read())
 
 
 def seed_snapshots(conn, snapshot_ids):
-    """
-    Populate organizations and snapshots tables for reporting completeness.
-    """
     cur = conn.cursor()
     organization_id = uuid4()
     now = datetime.utcnow()
@@ -72,10 +66,8 @@ def seed_snapshots(conn, snapshot_ids):
 # MAIN PIPELINE
 # ----------------------------
 def main():
-    # Ensure output directory exists
     Path(DB_PATH).parent.mkdir(parents=True, exist_ok=True)
 
-    # Remove existing database if it exists
     db_path = Path(DB_PATH)
     if db_path.exists():
         db_path.unlink()
@@ -83,16 +75,12 @@ def main():
     conn = sqlite3.connect(DB_PATH)
     conn.execute("PRAGMA foreign_keys = ON")
 
-    # Apply schema
     init_db(conn)
 
-    # Create snapshot IDs
     snapshot_ids = [uuid4() for _ in range(NUM_SNAPSHOTS)]
-
-    # Seed metadata tables
     seed_snapshots(conn, snapshot_ids)
 
-    # Create tag pool (global)
+    # Global tag pool
     tag_ids = create_tags(conn)
 
     # ======================================================
@@ -100,71 +88,43 @@ def main():
     # ======================================================
     print("> Seeding initial snapshot")
 
-    # Users
     generate_users(conn, snapshot_ids[0], NUM_USERS)
 
     cur = conn.cursor()
     cur.execute(
-        """
-        SELECT user_id, snapshot_id, name, department
-        FROM users
-        WHERE snapshot_id = ?
-        """,
+        "SELECT user_id FROM users WHERE snapshot_id = ?",
         (snapshot_ids[0],),
     )
-    users = cur.fetchall()
+    users = [r[0] for r in cur.fetchall()]
 
-    # Teams
     generate_teams(conn, snapshot_ids[0], users)
 
     cur.execute(
-        """
-        SELECT team_id
-        FROM teams
-        WHERE snapshot_id = ?
-        """,
+        "SELECT team_id FROM teams WHERE snapshot_id = ?",
         (snapshot_ids[0],),
     )
-    teams = [row[0] for row in cur.fetchall()]
+    teams = [r[0] for r in cur.fetchall()]
 
-    # Projects
     projects = generate_projects(conn, snapshot_ids[0], teams)
-
-    # Sections for projects
     sections = generate_sections(conn, snapshot_ids[0], projects)
-    
-    # Get section mapping for task assignment
+
     cur.execute(
-        """
-        SELECT section_id, project_id FROM sections WHERE snapshot_id = ?
-        """,
+        "SELECT section_id, project_id FROM sections WHERE snapshot_id = ?",
         (snapshot_ids[0],),
     )
     section_map = {}
     for section_id, project_id in cur.fetchall():
-        if project_id not in section_map:
-            section_map[project_id] = []
-        section_map[project_id].append(section_id)
+        section_map.setdefault(project_id, []).append(section_id)
 
-    # Tasks
     tasks = generate_tasks(conn, snapshot_ids[0], projects, users, section_map)
 
-    # Custom Fields
     generate_custom_fields(conn, snapshot_ids[0], projects, tasks)
-
-    # User comments
     generate_user_comments(conn, snapshot_ids[0], tasks, users)
-
-    # Attachments
     generate_attachments(conn, snapshot_ids[0], tasks)
 
-    # Tags
     assign_task_tags(conn, snapshot_ids[0], tasks, tag_ids)
 
-    # Automation rules (global, not snapshot-specific)
     generate_automation_rules(conn, num_rules=25)
-
-    # API + MCP traces (seed snapshot)
     generate_api_traces(conn, snapshot_ids[0], limit=100)
     generate_mcp_calls(conn, snapshot_ids[0], limit=30)
 
@@ -174,40 +134,32 @@ def main():
     for i in range(1, NUM_SNAPSHOTS):
         print(f"> Evolving snapshot {i}")
 
-        # Task evolution
         evolve_tasks(conn, snapshot_ids[i - 1], snapshot_ids[i])
+        conn.commit()  # 🔑 ensure durability before downstream writes
 
-        # Get tasks for this snapshot
         cur.execute(
             "SELECT task_id FROM tasks WHERE snapshot_id = ?",
             (snapshot_ids[i],),
         )
-        snapshot_tasks = [row[0] for row in cur.fetchall()]
+        snapshot_tasks = [r[0] for r in cur.fetchall()]
 
-        # User comments for evolved snapshot
-        generate_user_comments(conn, snapshot_ids[i], snapshot_tasks, users)
+        cur.execute(
+            "SELECT user_id FROM users WHERE snapshot_id = ?",
+            (snapshot_ids[i],),
+        )
+        snapshot_users = [r[0] for r in cur.fetchall()]
 
-        # Attachments for evolved snapshot
+        generate_user_comments(conn, snapshot_ids[i], snapshot_tasks, snapshot_users)
         generate_attachments(conn, snapshot_ids[i], snapshot_tasks)
-
-        # Automation artifacts (system comments, SLA reminders)
         apply_automation_artifacts(conn, snapshot_ids[i])
-
-        # API traces for evolved state
+        assign_task_tags(conn, snapshot_ids[i], snapshot_tasks, tag_ids)
         generate_api_traces(conn, snapshot_ids[i], limit=30)
 
-        # Tags for evolved snapshot
-        assign_task_tags(conn, snapshot_ids[i], snapshot_tasks, tag_ids)
-
-        # Validate temporal consistency
         validate_temporal_consistency(conn, snapshot_ids[i])
 
     conn.close()
     print("Simulation complete")
 
 
-# ----------------------------
-# ENTRYPOINT
-# ----------------------------
 if __name__ == "__main__":
     main()

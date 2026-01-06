@@ -30,6 +30,7 @@ TAG_NAMES = [
     "refactor",
 ]
 
+
 def create_tags(conn, num_tags=25):
     """
     Create a reusable pool of tags (global, not snapshot-scoped).
@@ -43,12 +44,14 @@ def create_tags(conn, num_tags=25):
         return existing
 
     tag_ids = []
-    # Use real tag names, cycling if needed
     for i in range(num_tags):
         tag_id = uuid4()
         name = TAG_NAMES[i % len(TAG_NAMES)]
         tag_ids.append(tag_id)
-        cur.execute("INSERT INTO tags VALUES (?, ?)", (tag_id, name))
+        cur.execute(
+            "INSERT INTO tags VALUES (?, ?)",
+            (tag_id, name),
+        )
 
     conn.commit()
     return tag_ids
@@ -56,9 +59,16 @@ def create_tags(conn, num_tags=25):
 
 def assign_task_tags(conn, snapshot_id, tasks, tag_ids, attach_prob=0.4):
     """
-    Attach 0-3 tags to each task with a given probability.
+    Attach 0–3 tags to each task for a given snapshot.
+    Snapshot-safe: clears old snapshot tags before reassigning.
     """
     cur = conn.cursor()
+
+    # 🔑 CRITICAL: clear existing tags for this snapshot
+    cur.execute(
+        "DELETE FROM task_tags WHERE snapshot_id = ?",
+        (snapshot_id,),
+    )
 
     for task_id in tasks:
         if random.random() < attach_prob:
@@ -66,9 +76,8 @@ def assign_task_tags(conn, snapshot_id, tasks, tag_ids, attach_prob=0.4):
             chosen = random.sample(tag_ids, k=min(num, len(tag_ids)))
             for tag_id in chosen:
                 cur.execute(
-                    "INSERT OR IGNORE INTO task_tags VALUES (?, ?, ?)",
+                    "INSERT INTO task_tags VALUES (?, ?, ?)",
                     (task_id, tag_id, snapshot_id),
                 )
 
     conn.commit()
-

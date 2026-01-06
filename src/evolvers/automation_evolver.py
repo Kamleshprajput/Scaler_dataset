@@ -2,7 +2,6 @@ from utils.ids import uuid4
 from utils.time import random_past_datetime
 import random
 
-# Human-like system comment messages
 SYSTEM_COMMENTS = [
     "This task was automatically assigned based on workload",
     "Reminder: This task is approaching its due date",
@@ -16,6 +15,7 @@ SYSTEM_COMMENTS = [
     "System notification: Task requires attention",
 ]
 
+
 def apply_automation_artifacts(conn, snapshot_id):
     cur = conn.cursor()
 
@@ -23,8 +23,8 @@ def apply_automation_artifacts(conn, snapshot_id):
         """
         SELECT task_id FROM tasks
         WHERE snapshot_id = ?
-        AND completed = 0
-        AND due_date IS NULL
+          AND completed = 0
+          AND due_date IS NULL
         ORDER BY RANDOM()
         LIMIT 200
         """,

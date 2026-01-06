@@ -2,66 +2,51 @@ from utils.ids import uuid4
 from utils.time import random_past_datetime
 import random
 
-# Human-like comment messages
-USER_COMMENTS = [
-    "Working on this now",
-    "Blocked waiting on API response",
-    "This looks good, ready for review",
-    "Need more information before proceeding",
-    "Can someone help with this?",
-    "Almost done, should be finished by EOD",
-    "Found an issue, investigating",
-    "This is complete and ready for testing",
-    "Waiting for approval from stakeholders",
-    "Updated the requirements, please review",
-    "Moving this to next sprint",
-    "This is a duplicate of another task",
-    "Great progress! Keep it up",
-    "Let's discuss this in the next standup",
-    "I've added more details in the description",
-    "This is ready for deployment",
-    "Need clarification on the acceptance criteria",
-    "Completed! Moving to done",
-    "This is taking longer than expected",
+COMMENT_TEXTS = [
+    "Please review this task",
+    "This needs to be done ASAP",
+    "I have started working on this",
+    "Waiting for approval",
+    "Blocked due to dependency",
+    "This looks good to me",
     "Can we prioritize this?",
-    "Thanks for the update!",
-    "I'll take a look at this",
-    "This is blocked by another task",
-    "Let me know if you need any help",
-    "Following up on this",
+    "Assigning this to the relevant team member",
+    "Following up on this task",
+    "Adding more context here",
 ]
 
-def generate_user_comments(conn, snapshot_id, tasks, users):
+
+def generate_user_comments(conn, snapshot_id, tasks, users, max_comments_per_task=3):
     """
-    Generate user comments on tasks. About 10-15% of tasks have user comments.
+    Flat comment model (no parent_comment_id).
+    users: list of user_id
+    tasks: list of task_id
     """
+    if not users or not tasks:
+        return  # graceful no-op
+
     cur = conn.cursor()
-    
+
     for task_id in tasks:
-        # 10-15% of tasks have user comments, with 1-4 comments per task
-        if random.random() < 0.12:
-            num_comments = random.randint(1, 4)
-            
+        if random.random() < 0.6:
+            num_comments = random.randint(1, max_comments_per_task)
             for _ in range(num_comments):
-                comment_id = uuid4()
-                author = random.choice(users)[0]  # User who created the comment
-                comment_text = random.choice(USER_COMMENTS)
-                
+                author_id = random.choice(users)
+
                 cur.execute(
                     """
-                    INSERT INTO comments VALUES (?, ?, ?, ?, ?, ?, ?)
+                    INSERT INTO comments
+                    (comment_id, snapshot_id, task_id, author_id, body, created_at)
+                    VALUES (?, ?, ?, ?, ?, ?)
                     """,
                     (
-                        comment_id,
+                        uuid4(),
                         snapshot_id,
                         task_id,
-                        author,
-                        "user",
-                        comment_text,
+                        author_id,
+                        random.choice(COMMENT_TEXTS),
                         random_past_datetime(),
                     ),
                 )
 
     conn.commit()
-
-
