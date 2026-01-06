@@ -1,0 +1,11 @@
+# Python
+__pycache__/
+*.pyc
+.env
+
+# SQLite database
+output/*.sqlite
+
+# OS files
+.DS_Store
+Thumbs.db
