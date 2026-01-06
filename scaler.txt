@@ -1,0 +1,1299 @@
+some features of app:-integration(integrate workflows)+automation(rules to automate)+visualize(calender,workflows,roadmaps)
+we need to create dataset that can train on it + fine-tune it
+asana type of resources: various departments like it+marketing+cross functional+ operations and pmo
+each department can have various media like tools, webinars, article, video, report, playbook,ai studio,ebook,template
+asana app development add a third party app for your users using asana directory-accessibilty of app to everyone/only few in org.
+uses rest api+app components+webhooks
+common use cases for intgrating tools, automating work, and building reports
+1....Keep two work tools connected:--One of the most common use cases for Asana’s API is to integrate two different commonly used tools for getting work done. Many of the apps in our app directory focus on solving this problem for popular tools. 
+Capture work and create a task from anywhere
+Work happens across many different tools. Asana is a critical tool for accountability and helping teams understand who is doing what by when. As your action items get generated, capture them as Asana tasks from whatever tool you are doing work.
+
+Examples:
+
+Gmail + Asana let’s users easily create tasks from emails
+Figma + Asana let’s users create tasks during brainstorming sessions
+Common API features for capturing work from anywhere include our tasks API. To learn more about how to use the API to create and update tasks programmatically, check out our quick start guide.
+Keep active work in sync across tools
+Constantly checking and updating multiple tools to keep information up to date is tedious. Asana’s API and extensible UI, app components, makes it possible to build apps that display real time data from other tools on the task pane.
+
+Examples:
+
+Jira Server + Asana connects Asana tasks and Jira issues. This app uses app component widgets to dynamically display Jira issue metadata like “Status” to an Asana user.
+Unito + Asana keeps projects, tasks, and even individual fields updated with other tools through a 2 way sync of data
+Common API features for keeping active work in sync across tools include the update custom fields API to update task or project custom fields, app component widgets to display data from other tools on the task pane, and webhooks to be notified when something changes in Asana.
+
+Create or attach work from other tools
+Collaborating on tasks is an easy way to co-create with your team. Provide teams with all the context across tools by dynamic adding links and reference content to tasks. Check out how our extensible UI, app components, makes it possible to extend the surface of Asana tasks.
+
+Examples:
+
+Miro + Asana can find and attach or create new Miro boards directly from Asana tasks. The app also uses the API to add Asana collaborators to a connected Miro board.
+Clockwise + Asana schedules time on your calendar to make sure work gets done directly from the Asana task.
+Create or attach work from other tools
+Collaborating on tasks is an easy way to co-create with your team. Provide teams with all the context across tools by dynamic adding links and reference content to tasks. Check out how our extensible UI, app components, makes it possible to extend the surface of Asana tasks.
+
+Examples:
+
+Miro + Asana can find and attach or create new Miro boards directly from Asana tasks. The app also uses the API to add Asana collaborators to a connected Miro board.
+Clockwise + Asana schedules time on your calendar to make sure work gets done directly from the Asana task.
+
+Common API features for creating or attaching work from other tools include using our app components: modal form, lookup, and widget.
+
+Automate workflows
+Another common use case pattern for Asana apps is automating workflows. Asana has a native feature to automate actions called Rules. Rules automate work on Asana tasks within a project. Rules are great for no code or low code use cases. Rules can also integrate with other tools through pre-built apps and rules can receive webhook triggers from other tools with the low code solution, incoming web requests.
+
+Developers can add to the functionality available in rules with app components, and we see developers build their own, bespoke automation without the use of rules using the API or webhooks. Here are some common patterns for automating workflows:
+Update data automatically
+Automate how tasks or projects get created or how goals get updated by building workflows to update data based on events or actions taken in another tool.
+
+Examples:
+
+Zapier + Asana: As an example, Zapier makes it possible to create an Asana task when a new row in a Google sheet is created.
+A custom app that creates a project from a template based on the data in certain custom fields values
+A low code solution, Incoming Web Requests, to receive webhooks from other tools as a Rule trigger in Asana.
+Common API features for updating Asana data automatically include using webhooks, incoming web requests or the Events API.
+React to changes from Asana
+Workflows with Asana often follow a model of "when this task changes, do something." Many actions you might want to automate are already available in Asana’s native Rules feature. However, if you want a custom workflow or are sending notifications to another tool, the API has multiple feature options.
+
+Examples:
+
+Slack + Asana embeds directly into Asana’s rule builder so that users can dynamically update how Slack messages are sent based on Asana actions.
+A custom app that updates a system of record with all comments made on tasks in a project
+Common API features for updating Asana data automatically include using app component rule actions, webhooks or the Events API.
+
+Generate reports or insights
+Because Asana is the source of truth for work management, valuable data and insight live in Asana. Asana provides a suite of reporting tools on projects and portfolios, and a few integrations with some popular analytics tools like Power BI & Tableau. Some customers have more bespoke reporting needs and prefer to extract data from Asana to integrate with their reporting tools. Take a look at the examples below to see how the API powers reporting:
+
+Extract data in bulk
+The API makes it possible to extract large amounts of data from Asana. This data can be directly transferred to another reporting tool like Power BI, Google Data Studio, or Tableau or it can be manipulated in a CSV to share with other key stakeholders.
+
+Examples:
+
+Tableau + Asana regularly extracts data from projects so that users can create custom reports inside Tableau.
+A custom app to export a CSV of status updates of projects inside a portfolio.
+Common API features used for generating reports of insights include the API to search and filter tasks, input/output options (“opt-fields”) so that you can specify exactly which data you want included in the response, and pagination to paginate results.
+
+Manage Asana at scale
+Build an Audit Log
+For many of our Enterprise organizations, audit logs are an essential part of security and compliance.
+
+Common API features for building an audit log include the use of our audit log API. To use the audit log API, you will need to be on the Enterprise tier and use a Service Account token to make a request.
+
+This is not an exhaustive list of use cases. For example we also know that many customers use the API to bulk import data, migrate data between services, run simple scripts for one time automation. We hope this serves as inspiration to get creative! We can’t wait to see what you build.
+
+------------------------------------------------------
+usage of work graph--core asana and their relationships.
+Workspace
+ ├── Teams
+ │    ├── Project Templates
+ │    └── Projects
+ ├── Portfolios
+ │    ├── Projects
+ │    └── Portfolios (nested)
+ ├── Goals
+ └── Users
+      └── Object Memberships
+           ├── Teams
+           ├── Projects
+           ├── Portfolios
+           └── Goals
+
+Projects
+ ├── Tasks
+ │    ├── Stories
+ │    ├── Attachments
+ │    ├── Tags
+ │    └── Custom Field Values
+ ├── Sections
+ ├── Custom Fields
+ ├── Project Brief
+ └── Status Updates
+
+Popular client libraries in JS, pyhton, ruby
+Custom fields:- metadata
+There is metadata that defines the custom field. This metadata can be shared across an entire workspace, or be specific to a project or portfolio
+Creating a custom field setting on a project or portfolio means each direct child will have the custom field. This is conceptually akin to adding columns in a database or a spreadsheet: every task (row) in the project (table) can contain information for that field, including "blank" values (i.e., null data). For portfolio custom fields, every project (row) in the portfolio (table) will contain information for the custom field
+Custom field settings only go one child deep. This means that a custom field setting on a portfolio will give each project the custom field, but not each task within those projects
+Tasks have custom field values assigned to them
+Along with other returned metadata, a custom field (regardless of type) will include display_value, a read-only field that will always be a string. For apps that use custom fields, this is a great way to safely display/export the value of a custom field, regardless of its type. We suggest apps use this field in order to future-proof for changes to custom fields
+
+Integrations using custom fields need to be aware of the six basic types that a custom field can adopt. These types are:
+
+text - an arbitrary, relatively short string of text
+number - a number with a defined level of precision
+enum - a selection of a single option from a defined list of options (i.e., mutually exclusive selections)
+multi_enum - a selection of one or more options from a defined list of options (i.e., mutually inclusive selections)
+date - a reference date with an optional time value
+people - a list of active contributors (i.e., where their relationship to the work is defined in the custom field title)
+NOTE: formula custom field is another type of custom field but the type is number and the is_formula_fieldvalue is true. Custom IDs is another field, identifiable when the id_prefix is a unique string instead of null. Currently, both are read-only.
+hese custom fields are accessible via the API through a number of endpoints at the top level (e.g., /custom_fields and /custom_field_settings) and through requests on workspaces, portfolios, projects, and tasks resources. The API also provides a way to fetch both the metadata and data which define each particular custom field, so that a client application may render proper UI to display or edit the values.
+
+Text fields are currently limited to 1024 characters. On tasks, their custom field value will have a text_value property to represent this field.
+
+Number fields can have an arbitrary precision associated with them; for example, a precision of 2 would round its value to the second (hundredths) place (e.g., 1.2345 would round to 1.23). On tasks, the custom field value will have a number_value property to represent this field.
+
+Formula fields are currently read-only and is represented by the is_formula_field value being true
+
+Custom ID fields are read-only and have a id_prefix string (instead of null) that is the unique custom ID string for the custom field.
+
+Enum fields
+Enum fields represent a selection from a list of options. On the metadata, they will contain all of the options in an array. Each option has 4 properties:
+
+gid - the GID of this enum option. Note that this is the GID of the individual option. The custom field itself has a separate gid.
+name - the name of the option (e.g., "Choice #1")
+enabled - whether this field is enabled. Disabled fields are not available to choose from when disabled, and are visually hidden in the Asana application, but they remain in the metadata for custom field values which were set to the option before the option was disabled.
+color - a color associated with this choice.
+On the task's custom field value, the enum will have an enum_value property which will be the same as one of the choices from the list defined in the custom field metadata.
+
+Querying for custom fields
+For custom fields shared across the workspace or organization, the workspace can be queried for its list of defined custom fields. Like other collection queries, the
+fields will be returned as a compact record; slightly different from most other compact records is the fact that the compact record for custom fields includes type as well as gid and name.
+
+Accessing custom field definitions
+The custom fields reference describes how the metadata which defines a custom field is accessed. A GET request with a gid can be issued on the /custom_fields endpoint to fetch the full definition of a single custom field given its gid from (for instance) listing all custom fields on a workspace, or getting the gid from a custom field settings object or a task.
+
+Associating custom fields with a project or portfolio
+A mapping between a custom field and a project or portfolio is handled with a custom field settings object. This object contains a reference for each of the custom fields and the project or portfolio, as well as additional information about the status of that particular custom field (e.g., is_important, which defines whether or not the custom field will appear in the list/grid on the Asana application).
+
+Accessing custom field values on tasks or projects
+The tasks reference has information on how custom fields look on tasks. Custom fields will return as an array on the property custom_fields, and each entry will contain, side-by-side, the compact representation of the custom field metadata and a {typename}_value property that stores the value set for the
+custom field.
+
+Of particular note is that the top-level gid of each entry in the custom_fields array is the gid of the custom field metadata, as it is the compact representation of this metadata. This can be used to refer to the full metadata by making a request to the /custom_fields/{custom_fields_id} endpoint as described above.
+
+Custom fields can be set just as in the Asana-defined fields on a task via POST or PUT requests. You can see an example in the update a task endpoint.
+
+Custom fields on projects follow this same pattern.
+
+Adding (or updating) a task's custom field value
+As an example, let's say you want to create a task in a particular project, and that project includes two custom fields: a text custom field (i.e., "resource_subtype": "text"), and an enum custom field (i.e., "resource_subtype": "enum").
+
+To create the task with values for these two custom fields, you should first make a request to GET /projects/{project_gid}/custom_field_settings, which returns a (compact) list of all of the custom fields settings on a project. Note the GID values of these custom field settings in your project, as well as the GID values of the individual enum options available.
+
+Once that is done, you can make a request to POST /tasks, providing the GIDs of the custom fields from above, along with your intended values for these custom fields. Here's an example of such a request:
+
+
+curl --request POST \
+     --url 'https://app.asana.com/api/1.0/tasks' \
+     --header 'accept: application/json' \
+     --header 'authorization: Bearer PERSONAL_ACCESS_TOKEN' \
+     --header 'content-type: application/json' \
+     --data '
+{
+  "data": {
+    "custom_fields": {
+      "TEXT_CUSTOM_FIELD_GID": "Sample value for a custom field of type text",
+      "ENUM_CUSTOM_FIELD_GID": "ENUM_OPTION_GID"
+    },
+    "projects": [
+      "PROJECT_GID"
+    ],
+    "name": "Sample task name"
+  }
+}
+'
+Note that while a direct text value (as a string) can be provided for text custom fields, the value for an enum custom field must be the GID of the enum option itself and not the text name of the enum option (e.g., the correct value is "1234567890", not "Option 1").
+
+A similar process applies to updating a task as well.
+
+Custom field scope
+Custom fields can be either project-specific/portfolio-specific (local custom field) or workspace-wide. If a custom field is project-specific/portfolio-specific, it is only accessible within that particular project/portfolio and cannot be viewed by other projects/portfolios. However, if it is workspace-wide, the custom field is available for use across all projects and portfolios within the workspace.
+
+Create project-specific/portfolio-specific custom field (local custom field)
+To create a project-specific/portfolio-specific custom field, make an API call to Add a custom field to a project /Add a custom field to a portfolio but instead of providing a custom field gidfor the custom_fieldrequest body parameter, provide a custom field object instead.
+
+Example request body:
+
+JSON
+
+{
+    "data": {
+        "custom_field": {
+            "name": "Local custom field",
+            "enum_options": [
+                {
+                    "name": "OPTION 1"
+                },
+                {
+                    "name": "OPTION 2"
+                }
+            ],
+            "resource_subtype": "enum"
+        }
+    }
+}
+Create workspace-wide custom field
+To create a workspace-wide custom field, you can use the Create a custom field API endpoint. Keep in mind that every custom field must be created within a specific workspace, and once assigned, the workspace cannot be changed.
+
+Programming defensively
+You should program defensively with regards to custom field definitions and types. For example, Asana users have the ability to change the definitions of custom field metadata in the Asana web app. Your app should account for this by double-checking that the custom field metadata are what your app expects them to be. Asana may also add new types of fields to the API in the future.
+
+As you write scripts and apps that use custom fields, assume that the definitions may change at any time and that new field types may be returned. Failing to take this into account may cause your app to break or malfunction if it makes assumptions about the metadata for a particular custom field or if it assumes no new field types will be added to the API.
+
+If your app stores a model for metadata, you should have a mechanism to dynamically update your model if it becomes out of sync due to the custom field metadata in Asana. For example, if you encounter an enum value on a task that does not match any option in your metadata model, your metadata model has become out of date with the custom field metadata and needs to be updated.
+
+Enabled and disabled values
+When information that is contained in a custom field value loses a logical association with its metadata definition, the value becomes disabled. This can happen in a couple of simple ways, for example, if you remove the custom field metadata from a project, or move a task with a custom field to a different project which does not have the custom field metadata associated with it. The value remains on the task, and the custom field metadata can still be found and examined, but as the context in which the custom field makes sense is gone, the custom field cannot change its value; it can only be cleared.
+
+📘
+Custom field retention
+Tasks that are associated with multiple projects do not become disabled, so long as at least one of the projects is still associated with the custom field metadata. That is, tasks with multiple projects will retain logically associated to the set of custom field metadata represented by all of their projects.
+
+Moving the task back under a project with that custom field applied to it or applying the custom field metadata to the current project will return the custom field value to an enabled state. In this scenario, the custom field will be re-enabled and editable again.
+
+In the Asana application, disabled fields are grayed out and not allowed to change, other than to be discarded. In the API, we return a property enabled: false to inform the external application that the value has been disabled.
+
+Note that the API enforces the same operations on disabled custom field values as hold in the Asana application: they may not have their values changed, since the lack of context for the values of a custom field in general doesn't provide enough information to know what new values should be. Setting the custom field value to null will clear and remove the custom field value from the task.
+
+Access control
+Custom fields are a complex feature of the Asana platform, and their access in the Asana application and in the API vary based on the status of the user and project. When building your application, it is best to be defensive and not assume the given user will have read or write access to a custom field, and fail gracefully when this occurs.
+
+Asana's API enables customization and automation of your organization’s workflow through scripts built to specialize your use of Asana. Using Asana to track your work and leveraging Asana’s API to automate your processes is a powerful combination which can make your team much more efficient. Here's one example of how we do it at Asana.
+
+Tracking timely responses to support questions
+Asana’s developer relations team manages technical support for our API through a number of channels: support tickets, questions about our API and integrations forwarded on from our colleagues, the developer forum, Stack Overflow, pull requests, and bug reports from open-source GitHub projects like our client libraries, and more. Staying on top of all of these channels can be daunting, but we want our users to reach us however works best for them. At the same time, we want to isolate the noise of incoming requests for our colleagues at Asana who are involved with only one channel.
+
+Additionally, the management of the question and answer process, triaging the incoming requests, troubleshooting with our engineers, and measuring our response performance are all internal processes. Even if we have a workflow in place to support our developer relations team, we want the experience for other teams to be easy and lightweight. We want to ensure our coworkers do the right things by default, without hindering the consistency of our work and our ability to track progress.
+
+Our solution: automation and reporting through our API to provide consistent management of the whole process.
+
+To do this, we wrote an integration with the following goals in mind:
+
+Maintain clarity amongst our teams by tracking work in Asana.
+Have only one place we have to look to stay in the loop.
+Ensure that no questions get missed (i.e., a "reminder" bot).
+Let our API users know that they've been heard in a timely fashion.
+Track our performance in remaining responsive.
+Automate some of the bookkeeping required to maintain a consistent workflow.
+Separate the specifics of how we track our performance from our colleagues’ workflows.
+The script we built does the following for us:
+
+Integrate with external sources to put incoming questions into Asana, one project per channel.
+Add question tasks from each incoming project into a single combined project.
+Acknowledge a question has been received and begin tracking response times.
+Upon first response, complete a task to signal relevant followers that we've reached out.
+Maintain focus
+We use webhooks to get notified in near-real time when new tasks are created in any of several Asana projects, one per incoming channel. Some of these projects are automatically synced with outside sources, others are available for our coworkers to create tasks in. Keeping tasks in their source channel helps keep us organized for where to go to respond. These projects are what our colleagues follow in order to remain focused on their own channels.
+
+Our script responds to these webhook notifications from each project by adding these tasks into a single "Developer Questions" project. Our developer relations team can then see outstanding questions about our API in a single place. This is a key part of reaching our service level agreement (SLA) goals: not having to cycle through many projects and channels to see how we're progressing.
+
+Ensure timely responses
+Once a question gets added to our Developer Questions project, our integration creates a subtask on it. This signals to our colleagues that we have received the question and will begin to triage and investigate. The subtask is completed when we first respond to our users to inform them that we're investigating. Completion of the question task itself signals that we've achieved a resolution for the party who reached out to us.
+
+Track progress
+Our script can generate a simple report to see which questions are still open, how long they’ve been open, and how much time we have left to answer before we miss our service level agreement limits. A simple webpage that the integration creates enables a high level view of what's still in progress and how timely we've been in the past.
+
+Keep the process moving automatically
+Our integration also helps automate some of the routine steps to ensure questions get answered. After a task gets triaged for priority, our integration sets an appropriate due date. It can also set an assignee and followers based on current workload and by matching certain keywords in the task description. If the task approaches its due date and it has not received a response, the script comments on the task to alert us that the question is about to reach our SLA limit. This helps us keep the right people in the loop with minimal overhead and maximum clarity of what needs to be done by when.
+
+By managing this routine and specialized workflow with automation through Asana’s API, our team is more efficient, more effective, and less likely to make a mistake. We know how responsive we've been and can see how we're doing at any time. We're better able to minimize the number of questions which may become overlooked. The result is better support for outside developers and increased focus on core work, rather than "work about work."
+
+Over time, we've continuously optimized how our integration behaves to evolve our process, empowering us to adjust and iterate our approach. This is one of the key opportunities that Asana's API provides: ownership and control over how work gets done. Incremental improvements provide the chance to try out new workflows and settle on one that works well for everyone, leading to a more consistent and customized experience of using Asana.
+
+For support or to generate ideas of how your team can work more effectively with Asana, visit the developer forum to chat with the community.
+
+Installation
+For use in the Node server-side JavaScript runtime, you can install with npm:
+
+Shell - Node SDK Latest version (i.e., v3)
+Shell - Node SDK v1
+
+npm install asana
+Consider migrating to Node v3 if you're currently using v1 of the SDK.
+
+Browser
+You may also use our library directly in the browser (i.e., rather than in a Node environment). Visit the Releases page to download the latest full or minified JS bundle, then include the following script in your web page:
+
+HTML
+
+<script src="asana-min.js"></script>
+Hello world
+In this brief tutorial, we'll build a GET request to /users/me using the Node client library.
+
+To get started, be sure that you have installed the library (npm install asana). You may also follow the detailed installation instructions on the GitHub page for the Node client library. Then, once the library is installed:
+
+Copy the example code below:
+Node SDK v3
+Node SDK v1
+
+// Import the library
+const Asana = require('asana');
+
+// Configure client with personal access token
+let client = new Asana.ApiClient();
+let token = client.authentications['token'];
+token.accessToken = '0/123456789....';
+
+// Construct resource API Instance
+let usersApiInstance = new Asana.UsersApi(client);
+let user_gid = "me";
+let opts = {};
+
+// Get your user info
+usersApiInstance.getUser(user_gid, opts).then((result) => {
+    console.log('Hello world! ' + 'My name is ' + result.data.name + '!');
+}, (error) => {
+    console.error(error.response.body);
+});
+Open a text editor and save this code in a file (i.e., a descriptive file name such as hello_world.js).
+
+Run this script in your console by passing it as an argument to the Node interpreter: node hello_world.js. You must execute this command in the same directory as the file.
+
+You should see the response outputted to the console.
+
+You can see a variant of this script, and other useful Asana API scripts, in our open-source devrel-examples.
+
+GitHub
+You can access the library's source code on GitHub.
+
+All of the built-in functions can be found in the /gen folder of the client library.
+
+OAuth
+See this page for examples of using OAuth with the Node SDK.
+nstallation
+Shell - Python SDK Latest version (i.e., v5)
+Shell - Python SDK v3
+
+pip install asana
+Hello world
+In this brief tutorial, we'll build a GET request to /users/me using the Python client library.
+
+To get started, be sure that you have installed the library (pip install asana). You may also follow the detailed installation instructions on the GitHub page for the Python client library. Then, once the library is installed:
+
+Copy the example code below:
+Python SDK v5
+Python SDK v3
+
+# Import the library
+import asana
+from asana.rest import ApiException
+
+# Configure personal access token
+configuration = asana.Configuration()
+configuration.access_token = '0/123456789....'
+api_client = asana.ApiClient(configuration)
+
+# Construct resource API Instance
+users_api_instance = asana.UsersApi(api_client)
+user_gid = "me"
+opts = {}
+
+try:
+    # Get your user info
+    me = users_api_instance.get_user(user_gid, opts)
+
+    # Print out your information
+    print("Hello world! " + "My name is " + me["name"] + "!")
+except ApiException as e:
+    print("Exception when calling UsersApi->get_user: %s\n" % e)
+Open a text editor and save this code in a file (i.e., a descriptive file name such as hello_world.py).
+
+Run this script in your console by passing it as an argument to the Python interpreter: python hello_world.py. You must execute this command in the same directory as the file.
+
+You should see the response outputted to the console!
+
+As an aside, for clarity python-asana will also work with Python 3.x (with minor changes to the above example to make it compatible.)
+
+You can see a variant of this script, and other useful Asana API scripts, in our open-source devrel-examples.
+
+GitHub
+You can access the library's source code on GitHub.
+
+All of the built-in functions can be found in the "Documentation for API Endpoints" section of the client library README.md.
+Asana offers a Model Context Protocol (MCP) server, accessible via app integration, which allows AI assistants and other applications to access the Asana Work Graph from beyond the Asana platform. This server provides a way to interact with your Asana workspace through various AI platforms and tools that support MCP.
+
+To learn more, see:
+
+Compatible MCP Servers
+Using Asana's MCP Server
+Integrating with Asana's MCP Server
+
+Overview
+Asana offers a Model Context Protocol (MCP) server, accessible via app integration, which allows AI assistants and other applications to access the Asana Work Graph from beyond the Asana platform. This server provides a way to interact with your Asana workspace through various AI platforms and tools that support MCP.
+
+With this server, Asana customers can:
+
+Access Asana data from compatible AI applications
+Create and manage tasks and projects through natural language
+Generate reports and summaries based on Asana data
+Analyze project data and get AI-powered suggestions
+Example requests users could make from outside Asana using the MCP:
+
+"Find all my incomplete tasks due this week"
+"Create a new task in the Marketing project assigned to me"
+"List all sections in the Product Launch project"
+"Show me the status of the Q2 Planning project"
+Requirements
+A compatible MCP client. There is a partial list of clients here!
+The app named "Asana MCP" is not blocked via Asana app management. If you're not sure if the app is blocked, try to connect your MCP client to the server and go through the authorization flow. You'll either be able to authorize the app like normal or, if the app is currently blocked, be prompted to send a request for your admin to unblock the app for your domain.
+Available tools
+Asana's MCP server includes 30+ tools for:
+
+Project tracking and status updates
+Task creation and management
+User information
+Getting updates on Goals
+Team organization
+Quick Asana object searching via typeahead
+📘
+Listing available tools
+Once you’ve authenticated your client app, you can use the tools/list MCP command to view all of the Asana endpoints available through your connection. This ensures your client always has the most up-to-date list of supported tools.
+
+This approach follows the Model Context Protocol best practices. Instead of documenting every tool statically, the protocol itself exposes a reliable way to discover them dynamically.
+
+Connecting to Asana's MCP Server
+The Asana MCP server is available at: https://mcp.asana.com/sse
+
+This server requires authentication with your Asana account. When connecting, you will be prompted to authorize the application to access your Asana data.
+
+📘
+Allowlist
+Due to the implementation of an OAuth redirect URI allowlist, some third-party applications might require additional configuration or registration of their redirect URI with Asana Support before a successful connection can be established. If you’re a maintainer of an MCP client, see Integrating with Asana's MCP Server for details on how to register.
+
+Using with Claude.ai
+Note: Requires Claude Enterprise or Teams, and the connection must be set up by a Workspace Owner or Primary Owner in Claude before users will be able to connect
+
+For Claude.ai Admins
+Only Workspace Owners and Primary Owners can set up MCP server connections in Claude.ai:
+
+Go to Settings in Claude.ai
+Navigate to the "Integrations" section
+Click "Add server"
+Enter "Asana" as the Name
+Enter https://mcp.asana.com/sse as the Server URL
+Click "Add server"
+Authenticate with your Asana account via OAuth
+Select which Asana tools to enable for your workspace
+Click "Save"
+For Claude.ai Users
+After your admin has set up the integration:
+
+Navigate to claude.ai
+Click on the tools menu (next to the search icon)
+Select "Asana" from the list of available integrations
+If this is your first time using the integration, you'll be prompted to authenticate
+Once authenticated, you can start using Claude with Asana
+For Claude Code Users
+Install and configure Claude Code locally on your computer.
+Run the following command in the terminal (not Claude Code chat) to add Asana MCP to Claude Code:
+bash
+
+claude mcp add --transport sse asana https://mcp.asana.com/sse
+Authenticate to Asana if prompted.
+Open Claude Code chat in the terminal and start using Asana:
+bash
+
+claude
+Using with Cursor
+Go to your Cursor editor's settings ("Settings" > "Cursor Settings")
+"MCP" > "+ Add new global MCP server" OR "Tools & Integrations" > "New MCP Server"
+Add the following to your mcp.json:
+JSON
+
+        "asana": {
+            "command": "npx",
+            "args": ["mcp-remote", "https://mcp.asana.com/sse"]
+        }
+Save your mcp.jsonfile. If this is your first time using the integration, you'll be prompted to authenticate
+NOTE: If you run into Internal Server Erroryou can delete your local ~/.mcp-authdirectory rm -rf ~/.mcp-auth.
+WARNING: if you have other applications that might be using this directory ~/.mcp-auth you will need to re-auth (EX: other applications that use mcp-remote)
+Once authenticated, you can start using Cursor with Asana
+Using with other supported MCP Clients
+For MCP-compatible clients:
+
+Configure your client to connect to https://mcp.asana.com/sse
+Ensure your client supports OAuth authentication
+Set up the connection according to your client's documentation
+Authenticate with your Asana account when prompted
+Select which Asana tools to enable based on your needs
+Using with ChatGPT
+We're excited about the potential for ChatGPT to connect with Asana's MCP server and actively exploring this integration! ChatGPT requires some additional tools we do not yet support, please check back soon for updates.
+
+Allowing / Blocking Asana's MCP Server
+Customers in Asana's Enterprise+ tier may use Asana's App Management to allow or block the Asana MCP app. This action will apply to all MCP clients. Customers in other tiers may contact Asana Support to block the Asana MCP app. Super admins must make the support request.
+
+Troubleshooting
+If authentication fails, try logging out of your Asana account and logging back in. If that does not address the issue or you see a “Client not found” error, try removing the Asana MCP integration within your client and adding it back.
+Ensure your MCP client supports SSE-based servers (not Streamable HTTP)
+If you’re still not able to connect or are seeing aninvalid_redirect_uri error, reach out to the maintainer of the app you’re using for help (see Integrating with Asana's MCP Server)
+Check that your client can handle OAuth authentication flows
+Verify you have the necessary permissions in your Asana workspace
+Compatible MCP:-
+
+    Claude Desktop	Anthropic's AI assistant with desktop integration	Setup →
+	Claude Code	AI coding assistant in your terminal	Setup →
+	Cursor	AI-first code editor	Setup →
+	Perplexity AI	AI-powered answer engine	Setup →
+	Microsoft Teams	Teams Channel Agent Orchestration	Setup →
+	Amazon Bedrock AgentCore	MCP with Amazon Bedrock AgentCore services	More details →
+	Docker	Docker Desktop MCP Toolkit	More details →
+	Zoom	Asana within Zoom AI Companion	Setup →
+	Figma	Asana Figma Make Integration	Setup →
+	Hubspot Breeze	Asana for Hubspot Breeze Integration	Setup →
+	VS Code	Asana MCP server in VS Code	Setup →
+	Mistral AI	Asana MCP into Mistral Le Chat	Setup →
+	Devin	Asana in Devin's MCP Marketplace	Setup →
+	Writer	Generative AI for Enterprises	More details →
+	Make	No-Code AI Agentic Automation	More details →
+    Integrating with Our Asana MCP Server
+This documentation outlines the process for connecting your MCP client to our official Asana MCP server.
+
+Discovery endpoint
+MCP supports the OAuth 2.0 Authorization Server Metadata specification.
+
+You can dynamically discover the available endpoints (such as authorization_endpoint, token_endpoint, and registration_endpoint) at:
+
+HTTP
+
+https://mcp.asana.com/.well-known/oauth-authorization-server
+This discovery endpoint should be treated as the source of truth when building against MCP.
+
+Register an MCP OAuth app
+Unlike standard OAuth apps, which are created in the Developer Console, the Asana MCP server uses Dynamic Client Registration. This allows you to register your application programmatically using the registration endpoint.
+
+Request
+cURL
+JSON
+
+curl --request POST 'https://mcp.asana.com/register' --header 'Content-Type: application/json' --data '{
+  "redirect_uris": [
+    "https://example.com/callback"
+  ]
+}'
+Response
+JSON
+
+{
+  "client_id": "i9uzw6sqpWOunzVe",
+  "redirect_uris": [
+    "https://example.com/callback"
+  ],
+  "grant_types": [
+    "authorization_code",
+    "refresh_token"
+  ],
+  "response_types": [
+    "code"
+  ],
+  "token_endpoint_auth_method": "client_secret_basic",
+  "registration_client_uri": "/register/i9uzw6sqpWOunzVe",
+  "client_id_issued_at": 1757065260,
+  "client_secret": "Lu1zsYWOeIplw3lqDoIkYGnFIYyDxXAo"
+}
+After registration, the remaining OAuth flow - authorization, token exchange, refresh, and revocation - follows the same process described in the main Asana OAuth documentation, but using the MCP-specific endpoints provided by the discovery endpoint.
+
+🚧
+MCP OAuth tokens
+MCP tokens and standard Asana OAuth tokens are not cross-compatible. To use MCP endpoints, you must obtain an OAuth token from the MCP authorize endpoint, which will only work with the Asana MCP server. If you want to make standard Asana API requests, you will need to obtain a separate token from the Asana OAuth authorization endpoint. In other words, each environment issues its own tokens, and a token from one cannot be used in the other.
+
+What is a Redirect URI?
+A redirect URI, also known as a callback URL, is a critical part of the OAuth 2.0 authorization process. After a user successfully approves your application to access their Asana data, the Asana MCP server sends them back to your application. The redirect URI is the specific endpoint where the authorization server sends the user, along with an authorization code. Your application then exchanges this code for an access token to make authenticated requests to the Asana API on the user's behalf.
+
+Why do we have an allowlist?
+MCP is an open protocol, and recommended features like Dynamic Client Registration can introduce challenges to combating malicious clients. To help mitigate this, Asana maintains an allowlist of approved MCP client redirect URIs to protect our users. This is a crucial security measure that helps prevent several types of attacks, most notably phishing and authorization code interception.
+
+📘
+Request that your client be added to the allowlist
+Please use this form to request the addition of a new redirect URI. At this time, we do not support variables in redirect URIs. Our team will review your request and reply over email. Note that we can only approve submissions from the developers of the app themselves: if you are using an app you want added but did not develop yourself, please get in touch with its developers to have them fill out the form.
+
+Invalid redirect URI handling
+If your application attempts to register with the MCP server but its redirect URI is not on our allowlist, the authorization attempt will fail. Your application will receive a JSON error response that looks like this:
+
+JSON
+
+{
+  "error": "invalid_redirect_uri",
+  "error_description": "One or more redirect URIs are not allowed",
+  "disallowed_uris": ["https://unallowed.com"]
+}
+Connecting your MCP client
+If you are building a new application and wish to connect your MCP client to the official Asana MCP server, you will need to have your redirect URI added to our allowlist. Note that this process is intended for use by developers of MCP clients.
+
+If you are a user of an MCP app (such as Claude) and having trouble connecting it to Asana, please see our usage documentation to debug connection issues. If the app you are using is still unable to connect, please reach out to the app's developer and have them request access for their app. We cannot approve requests from users on behalf of an app's developer.
+
+To request the addition of a new redirect URI, please make a request through our internal request form.
+Our team will review your request and, upon approval, add your redirect URI to the allowlist, enabling your client to integrate with our server.
+Workflow automation script
+Asana's API enables customization and automation of your organization’s workflow through scripts built to specialize your use of Asana. Using Asana to track your work and leveraging Asana’s API to automate your processes is a powerful combination which can make your team much more efficient. Here's one example of how we do it at Asana.
+
+Tracking timely responses to support questions
+Asana’s developer relations team manages technical support for our API through a number of channels: support tickets, questions about our API and integrations forwarded on from our colleagues, the developer forum, Stack Overflow, pull requests, and bug reports from open-source GitHub projects like our client libraries, and more. Staying on top of all of these channels can be daunting, but we want our users to reach us however works best for them. At the same time, we want to isolate the noise of incoming requests for our colleagues at Asana who are involved with only one channel.
+
+Additionally, the management of the question and answer process, triaging the incoming requests, troubleshooting with our engineers, and measuring our response performance are all internal processes. Even if we have a workflow in place to support our developer relations team, we want the experience for other teams to be easy and lightweight. We want to ensure our coworkers do the right things by default, without hindering the consistency of our work and our ability to track progress.
+
+Our solution: automation and reporting through our API to provide consistent management of the whole process.
+
+To do this, we wrote an integration with the following goals in mind:
+
+Maintain clarity amongst our teams by tracking work in Asana.
+Have only one place we have to look to stay in the loop.
+Ensure that no questions get missed (i.e., a "reminder" bot).
+Let our API users know that they've been heard in a timely fashion.
+Track our performance in remaining responsive.
+Automate some of the bookkeeping required to maintain a consistent workflow.
+Separate the specifics of how we track our performance from our colleagues’ workflows.
+The script we built does the following for us:
+
+Integrate with external sources to put incoming questions into Asana, one project per channel.
+Add question tasks from each incoming project into a single combined project.
+Acknowledge a question has been received and begin tracking response times.
+Upon first response, complete a task to signal relevant followers that we've reached out.
+Maintain focus
+We use webhooks to get notified in near-real time when new tasks are created in any of several Asana projects, one per incoming channel. Some of these projects are automatically synced with outside sources, others are available for our coworkers to create tasks in. Keeping tasks in their source channel helps keep us organized for where to go to respond. These projects are what our colleagues follow in order to remain focused on their own channels.
+
+Our script responds to these webhook notifications from each project by adding these tasks into a single "Developer Questions" project. Our developer relations team can then see outstanding questions about our API in a single place. This is a key part of reaching our service level agreement (SLA) goals: not having to cycle through many projects and channels to see how we're progressing.
+
+Ensure timely responses
+Once a question gets added to our Developer Questions project, our integration creates a subtask on it. This signals to our colleagues that we have received the question and will begin to triage and investigate. The subtask is completed when we first respond to our users to inform them that we're investigating. Completion of the question task itself signals that we've achieved a resolution for the party who reached out to us.
+
+Track progress
+Our script can generate a simple report to see which questions are still open, how long they’ve been open, and how much time we have left to answer before we miss our service level agreement limits. A simple webpage that the integration creates enables a high level view of what's still in progress and how timely we've been in the past.
+
+Keep the process moving automatically
+Our integration also helps automate some of the routine steps to ensure questions get answered. After a task gets triaged for priority, our integration sets an appropriate due date. It can also set an assignee and followers based on current workload and by matching certain keywords in the task description. If the task approaches its due date and it has not received a response, the script comments on the task to alert us that the question is about to reach our SLA limit. This helps us keep the right people in the loop with minimal overhead and maximum clarity of what needs to be done by when.
+
+By managing this routine and specialized workflow with automation through Asana’s API, our team is more efficient, more effective, and less likely to make a mistake. We know how responsive we've been and can see how we're doing at any time. We're better able to minimize the number of questions which may become overlooked. The result is better support for outside developers and increased focus on core work, rather than "work about work."
+
+Over time, we've continuously optimized how our integration behaves to evolve our process, empowering us to adjust and iterate our approach. This is one of the key opportunities that Asana's API provides: ownership and control over how work gets done. Incremental improvements provide the chance to try out new workflows and settle on one that works well for everyone, leading to a more consistent and customized experience of using Asana.
+
+For support or to generate ideas of how your team can work more effectively with Asana, visit the developer forum to chat with the community.
+
+Postman Collection
+You can make requests against Asana's API with the API explorer. However, if you want a convenient way to make requests on your local machine (i.e., instead of in your browser), we recommend using Postman.
+
+
+Getting started
+You can get started with the Run in Postman button below!
+
+Run In Postman
+
+📘
+Usage and updates
+Importing this collection gives you a snapshot of the API at this time. To stay up to date with API changes, you will have to re-import the collection by selecting the Run in Postman button, and choosing to override your existing collection. As such, if you want to save custom requests, you should do so in a different collection.
+
+Once you have the collection, you should create an environment. After that, you should then set:
+
+An authentication_token to a personal access token (PAT). If you don't have one yet, visit personal access token for details.
+A workspace to your workspace's GID. You can find this value via a logged-in browser by going to https://app.asana.com/api/1.0/users/me/workspaces, or by making an API request to that endpoint using your PAT.
+Any other GIDs you want to easily access. For example, you can set task to the GID of a task that you regularly test with, project to the GID of a private sandbox project, and user to the string 'me'.
+There is no need to edit your environment for requests on different objects. You may simply navigate to the endpoint you want to use, then change the {{object}} to any GID you want.API explorer
+Learn to use the helpful tools embedded in our API Reference
+
+Asana's REST API reference allows you to explore different REST API endpoints through an in-context, easy-to-use interface. Using this built-in API explorer, you can make API requests (and view responses) directly in your browser.
+
+
+Prerequisites
+Before using the API explorer, be sure to create a personal access token (if you do not already have one). Generating a PAT allows you to access (i.e., make requests to) the Asana REST API upon successful authentication.
+
+🚧
+Operating on real data
+By authenticating with a personal access token, note that you will be operating on real data in your Asana instance. This is also true when making requests via cURL or the Postman Collection.
+
+If you would like to make requests against data outside of your Asana instance (e.g., for testing purposes), we recommend setting up a developer sandbox.
+
+Usage
+1. Select an API endpoint
+To access the API explorer, visit the REST API reference and select any API endpoint.
+
+For example, here is the section for GET https://app.asana.com/api/1.0/users/GID:
+
+
+2. Authenticate
+After choosing an API endpoint, provide your personal access token on the right side of the page:
+
+
+3. Build the request
+Then, in the middle section of the page, supply the required request parameters. You may also enter any input/output options here as well.
+
+
+4. View the response
+Once the request has been built, select Try It! to make your API request. For example, the following shows an example request and 200 response:
+
+
+Notes
+Enumerated values
+Enumerated values for request parameters can be found as a dropdown on the property itself. For example, here are the enumerated values for resource_subtype when creating a custom field:
+
+
+Example responses
+If you wish to view a sample response (e.g., a 200 response for a GET request) for a given API endpoint, select the HTTP status code on the right portion of the screen.
+{
+  "data": {
+    "gid": "12345",
+    "resource_type": "task",
+    "name": "Greg Sanchez",
+    "email": "gsanchez@example.com",
+    "photo": {
+      "image_21x21": "https://...",
+      "image_27x27": "https://...",
+      "image_36x36": "https://...",
+      "image_60x60": "https://...",
+      "image_128x128": "https://...",
+      "image_1024x1024": "https://..."
+    },
+    "workspaces": [
+      {
+        "gid": "12345",
+        "resource_type": "task",
+        "name": "My Company Workspace"
+      }
+    ]
+  }
+}
+
+
+
+In the above example, selecting 200 will display the following sample response:
+
+
+Schemas
+To see object schemas directly in the API explorer, select the 200 response for a GET request for that resource. For example, see the 200 response option here (highlighted in red) for GET /users/GID:
+
+
+In the above example, selecting 200 will open a modal that features the full schema for that resource (in this case, a user resource).
+
+Before moving forward with making sample API requests or building apps that leverage that Asana API, we recommend first getting an Asana developer sandbox. A developer sandbox is a temporary Asana domain with limited users.
+
+Developer sandboxes are intended for:
+
+Developers building or maintaining a third-party integration with Asana (i.e., submitting your completed integration to get listed in our app directory)
+Existing Asana Starter customers or higher tiers who require a separate environment to perform risk-free testing on the API
+Sandboxes can include Enterprise, Advanced, and Starter features upon request, and are valid for a maximum of one year. Extensions requested after one year will go through Legal review. Approval is not guaranteed, though you may be eligible to request a new sandbox.
+
+To see the feature differences between the Asana plans, please visit our pricing page.
+
+➡ To request a developer sandbox, please complete and submit this form.
+
+Asana Rules allow you to easily streamline routine tasks and establish workflows. With rules, you can create a trigger that activates the rule, followed by an action that is performed automatically. For example, a rule can be created to automatically assign a task (action) when a due date is set (trigger).
+
+To support cross-application workflows, we offer incoming web requests: a generic trigger that helps quickly connect a third-party application to Asana through rules. By making a simple web request to Asana, you can use incoming web requests to trigger automations in the Asana product. This way, you can easily set up workflows outside of Asana to perform operations on data within Asana.
+
+
+In the above example, you can set up a third-party application to make a web request to Asana. Then, when the request is received, any number of user-defined automations can be run. Here: (1) A task will be automatically assigned to the user who triggered the web request, and (2) A comment, containing data from the request body, will also be automatically created on that task.
+
+Example use cases
+Incoming web requests allow you to build a low-code integration using Asana rules. For example:
+
+When a Salesforce record reaches a particular stage (e.g., "Demo for client"), use incoming web requests to automatically create a task in Asana. This rule can be coupled with other rules (e.g., when a task is created, convert it to a project).
+When a Zendesk ticket is closed, use incoming web requests to automatically mark a corresponding task in Asana as "Complete."
+After following this tutorial, you will be able to using incoming web request triggers to build similar automations.
+
+Prerequisites
+This guide leverages features that are only available in Asana Business and Asana Enterprise workspaces. Note that if your workspace is of a different tier, you may still be able to test these features by requesting a developer sandbox.
+
+Additionally, this guide requires operations to be performed by an authorized user. Before making any API requests through this guide, we recommend creating a personal access token (if you do not already have one).
+
+API reference
+Web request URL
+Setting up a Web request received trigger in an Asana rule will automatically generate a web request URL (i.e., API endpoint).
+
+HTTP method	API endpoint	Asana behavior
+POST	/rule_triggers/:trigger_identifier/run	Requests made to this API endpoint will trigger an automation via a rule.
+Similar to other Asana API endpoints, this web request URL is relative to the same base URL. Additionally, note that requests to this API endpoint must include valid request headers:
+
+Authorization: Bearer <your_access_token_here>
+Content-Type: application/json
+Path parameters
+Property	Type	Description
+trigger_identifier	string	The ID of the incoming web request trigger. This value is a path parameter that is automatically generated for the API endpoint.
+Body parameters
+The JSON request body (i.e., payload) is a single data object with the following properties:
+
+Property	Type	Description
+action_data	object	The dynamic keys and values of the request. These fields are intended to be used in the action for the rule associated with this trigger.
+resource (required)	string	The ID of the resource. For the duration of the beta, this resource is always a task, and this task must exist in the project in which the rule is created.
+Note that while the action_data object has no strict schema (i.e., key names are user-defined), the following limits are enforced:
+
+A maximum of 10 nesting layers
+A maximum of 100 key-value pairs
+A maximum payload size of 256 kb
+Example request body
+The following is an example JSON request body when making a POST request to the API endpoint above.
+
+JSON
+
+{
+  "data": {
+    "resource": "TASK_ID",
+    "action_data": {
+      "user": {
+        "id": "12345",
+        "name": "Ross"
+      },
+      "description": {
+        "body": "{{issue.description}}"
+      },
+      "status": "In progress"
+    }
+  }
+}
+Responses
+Requests to the API endpoint can return the following HTTP response status codes:
+
+Status	Description
+200	The payload is saved, and the rule may or may not have run.
+400	Invalid payload format.
+401	A valid access token was not provided.
+404	The trigger or task was not found.
+429	This indicates the user has sent too many requests in a given amount of time (see limits).
+500	Internal server error.
+See also errors below for additional details and troubleshooting tips.
+
+Tutorial
+In the following tutorial, you'll build a rule that, when triggered by an incoming web request, automatically executes a defined set of actions. The build process covers:
+
+Setting up the trigger: creating a rule, adding a Web request received trigger, and saving any action data as a payload
+Setting up the action: adding automated actions to perform when the rule is activated
+Testing the automation: activating the rule to perform the automated actions
+1. Set up the trigger
+In a project with at at least one existing task, select Customize on the top right corner, then navigate to Rules and select + Add rule.
+
+
+On the next screen, select Create custom rule.
+
+
+Next, choose designated trigger. Because we want our automation to run following a web request, navigate to the External triggers tab and select Web request is received.
+
+
+Upon choosing this trigger, a web request URL (i.e., API endpoint) will be automatically generated for you. You can send a request to this URL at any time. Once a request is made, any request data sent with the request can be used as variables in this rule’s actions.
+
+
+Let's say that we first want to create an automation that, when triggered, performs two actions:
+
+Assigns the task to the user (who triggered the rule)
+Leaves a comment on an existing task in the project. We also want this comment to include data from the web request trigger
+At this point (before the rule is created), we can send a POST request to the web request URL with such data. That is, in the data JSON body for this request, we can include an action_data object with the properties we want to send to our Asana instance.
+
+JSON
+
+action_data: {
+  "key1": <value1>,
+  "key2": <value2>,
+  "key3": <value3>
+  // ... etc.
+}
+After this request is made, the properties from action_data will be saved to the rule, and will be available for use as dynamic values in actions. Here's an example:
+
+cURL
+
+curl -X POST \
+  https://app.asana.com/api/1.0/rule_triggers/trigger_identifier/run \
+  -H 'authorization: Bearer ACCESS_TOKEN' \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json' \
+  -d '{
+   "data": {
+      "resource": "TASK_GID",
+      "action_data": {
+         "user": {
+            "id": "12345",
+            "name": "Ross" 
+         },
+         "tag": "Escalated"
+      }
+   }
+}'
+Note: Replacetrigger_identifier (generated by selecting the Web request received trigger), ACCESS_TOKEN (e.g., your personal access token), and TASK_GID (ID of an existing task) with your own values.
+
+In the above example, we make a POST request to the web request URL. In the request, we include a JSON payload with a single data object. This object includes the following properties (with hard-coded values for the simplicity of this example):
+
+resource: The GID of the task that we want to be automatically assigned to the user. This is the same task on which we also want a comment to be automatically created. Note that for this beta, the value forresource is always the GID of an existing task in the project where the rule is made.
+action_data: Fields and values that are intended to be used in the action. In the example action_data object above, we simply include a user object and a tag string.
+🚧
+Provide a resource
+During this beta period, it is required to provide a task ID (i.e., as the resource) to trigger the rule, even if the action (e.g., creating a new task) doesn't technically require a task ID.
+
+As part of the response from the POST request, you should see the following 200 OK response, which confirms that the action_data payload was successfully saved to Asana:
+
+JSON
+
+{
+    "data": {
+        "message": "Successfully saved the payload, but the rule was not triggered, because it hasn't be saved yet"
+    }
+}
+2. Set up the action
+Once the trigger is set up, we'll add automated actions that will carry out when the rule is run. Recall that for this tutorial, the actions will be both:
+
+Assigning the task to the user (who triggered the rule)
+Leaving a comment on the task
+In the Actions tab, navigate to the Task field is... section. Once there, select the Set assignee to... action, choosing Rule triggerer as the assignee. This way, the user who makes the POST request to the URL becomes the assignee.
+
+
+Along with assigning the task, we can also add an action for automatically commenting on that same task. Underneath the Assign task card on the left portion of the screen, select + to add another action. Then, in the Actions tab on the right portion of the screen, navigate to Add to task and select Add comment to add that action.
+
+
+Recall that data from the request payload (i.e., action_data) can be used in actions for our rule. As such, we can integrate this data as variables (i.e., dynamic values) in the comment.
+
+On the bottom right corner of the comment field, select the + icon to add Web Request variables.
+
+
+Once selected, properties from action_data will be available for use. In our specific use case, this is the entire user object as well as the tag string that we defined and sent earlier (i.e., as the JSON payload).
+
+
+We can construct an automated comment to be created on the task with this data as dynamic values.
+
+
+Once the body of the comment has been created, we'll name the rule and select Create rule to save it.
+
+
+After saving, the rule should appear in your project and ready to use.
+
+
+❗️
+Deleting a rule
+Note that if you delete a rule that uses incoming web requests (i.e., a rule using Web request received as a trigger), all of the rule's related action_data will also be deleted.
+
+3. Test the automation
+After setting up both the trigger and the action for this rule, we can test the automation that we've created. We'll make another POST request to the web request URL (i.e., API endpoint) to activate the trigger.
+
+cURL
+
+curl -X POST \
+  https://app.asana.com/api/1.0/rule_triggers/trigger_identifier/run \
+  -H 'authorization: Bearer ACCESS_TOKEN' \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json' \
+  -d '{
+   "data": {
+      "resource": "TASK_GID",
+      "action_data": {
+         "user": {
+            "id": "12345",
+            "name": "Ross" 
+         },
+         "tag": "Escalated"
+      }
+   }
+}'
+Note: Replacetrigger_identifier (generated by selecting the Web request received trigger), ACCESS_TOKEN (e.g., your personal access token), and TASK_GID (ID of an existing task) with your own values.
+
+If successful, the server should send back a 200 OK HTTP status code with the following response:
+
+JSON
+
+{
+    "data": {
+        "message": "Successfully saved the payload and triggered the rule",
+        "job_id": 1234567890
+    }
+}
+Note: Thejob_id will be a uniquely-generated value in the response.
+
+In the Asana app, you should see the results of the automation.
+
+
+By activating the incoming web request trigger, we were able to set off two automated processes: assigning a user to the task, and leaving a comment on that same task.
+
+Troubleshooting
+Limits
+The API endpoint is subject to standard rate limits and limits in the JSON payload.
+
+Additionally, there is a limit of five (5) concurrent jobs. If you reach these limits, you may see a 429 Too Many Requests status returned in your API requests. In such cases, you should reduce the number of requests made in a short period of time.
+
+Errors
+Below are common errors you may encounter when making calls against the web request URL:
+
+400 Bad Request
+In your request payload, you may have omitted a task ID in the resource, sent a task ID that doesn't belong in the rule's project, or sent a malformed/non-parseable JSON body. Adjust your request accordingly so that it can be processed properly.
+
+401 Unauthorized
+Your token is not authorized to make a request to Asana's server. See the authentication to make sure you have appropriate and up-to-date credentials.
+
+404 Not Found
+The trigger identifier or task ID was not found. Double-check the automatically-generated web request URL for the correct trigger_identifier in the case of the former, and ensure that the task ID exists in the case of the latter.
+
+Webhooks allow an application to be notified of changes in Asana.
+
+This is similar to our events resource, but webhooks "push" events via HTTP POST rather than expecting integrations to repeatedly "poll" for them. For services that are already accessible on the internet, this is often more convenient and efficient.
+
+However, webhooks require a server to be accessible over the internet at all times to receive the event. For most simple integrations, events provide much of the same benefits while using a significantly simpler implementation which does not require maintaining an internet-accessible server.
+
+Webhooks and events streams are served from the same infrastructure, where, on average, events are delivered within a minute of occurring, and most should be delivered within 10 minutes of occurring. Review Timing for more information.
+
+This system is designed for at-most-once delivery, meaning in exceptional circumstances we may fail to deliver events. Furthermore, webhooks cannot be replayed once delivered. For these reasons, if your use case requires strong guarantees about processing all changes on a resource and cannot tolerate any missing events, regardless of how rare that might be, we recommend building a fallback polling system that fetches the resource periodically as well. Note that, if your server does not respond to a webhook with a successful HTTP status code within 10 seconds, Asana will try to resend the webhook for up to 24 hours before giving up.
+
+Setting up a webhook
+In order to work with Asana webhooks, you must create and host a server that can receive and handle webhook events. This server must expose an HTTP endpoint (i.e., a publicly-accessible URL) to function as the reception and processing point for all incoming events. During the development and testing process, if you set up such a server on your local machine (i.e., a localhost service), you may choose to use a "tunneling" tool such as ngrok to expose that local server to the internet.
+
+📘
+Example webhook servers
+The following are example webhook servers that demonstrates the features of Asana webhooks. Each example server includes how to handle the webhook handshake as well as how to receive and verify webhook events.
+
+To try out the demo out for yourself, be sure to generate a new personal access token, then follow the instructions in the README for your language of choice:
+
+Node.js example server
+Python example server
+The following video tutorial walks you through the process of:
+
+Setting up an example webhook server [1:58]
+Setting up business logic for the webhook handshake [3:45]
+Establishing a webhook on an Asana resource [6:45]
+Verifying and receiving webhook events[9:02]
+
+You can find the tutorial source code here.
+
+The webhook handshake
+📘
+Server requirement
+Your server must be capable of handling the outgoing create request while simultaneously receiving and processing incoming requests. A common reason for failed webhook handshakes is that a given server was unable to asynchronously manage the handshake request.
+
+The webhook handshake is a crucial step in establishing a secure connection between your webhook server and Asana. Here is a brief overview of the handshake:
+
+The webhook handshake, summarized
+The webhook handshake
+
+Each of the above numbered steps are described in detail:
+
+Before you can start receiving webhook events for an Asana resource, you must first establish a webhook connection.
+To verify that your server is ready to accept incoming events, Asana will make a POST request to the user-specified target URI from the webhook creation request. This means that your outgoing webhook creation request (from the previous step) will remain pending until Asana's servers successfully complete this POST request. Only after this "handshake" is successful will your webhook creation request return a successful response (i.e., 201 Created).
+Included in the header of that POST request from Asana is an X-Hook-Secret. This value serves as a shared secret that both Asana and the receiving server store. For future webhook events, Asana will use this value to compute a signature over the webhook callback request's body, allowing you to verify the authenticity of the incoming request. We strongly recommend utilizing this security feature and rejecting any webhooks with an invalid signature.
+To successfully complete the handshake, your webhook server must echo back an X-Hook-Secret header of its own with the same value. Your webhook server must also return a 200 OK or 204 No Content response status code.
+Once the handshake has completed, Asana returns a 201 Created response as the webhook is successfully established. This response body will also include the original X-Hook-Secret. For example:
+JSON
+
+{
+  "data": {
+    "gid": "12345",
+    "resource_type": "webhook",
+    "active": false,
+    "resource": {
+      "gid": "12345",
+      "resource_type": "task",
+      "name": "Bug Task"
+    },
+    "target": "https://example.com/receive-webhook/7654",
+    "created_at": "2012-02-22T02:06:58.147Z",
+    "last_failure_at": "2012-02-22T02:06:58.147Z",
+    "last_failure_content": "500 Server Error\\n\\nCould not complete the request",
+    "last_success_at": "2012-02-22T02:06:58.147Z",
+    "delivery_retry_count": 3,
+    "next_attempt_after": "2012-02-22T02:06:58.147Z",
+    "failure_deletion_timestamp": "2012-02-22T02:06:58.147Z",
+    "filters": [
+      {
+        "resource_type": "task",
+        "resource_subtype": "milestone",
+        "action": "changed",
+        "fields": [
+          "due_at",
+          "due_on",
+          "dependencies"
+        ]
+      }
+    ]
+  },
+  "X-Hook-Secret": "b537207f20cbfa02357cf448134da559e8bd39d61597dcd5631b8012eae53e81"
+}
+The secret should match the value returned in the X-Hook-Secret header from Step 2. We recommend that you verify this by comparing it with the X-Hook-Secret stored by your webhook server (Step 3). This ensures that the signing secret used for the webhook subscription comes from Asana, protecting against potential attacks. Note that X-Hook-Secret is not returned again when fetching the webhook subscription object .
+
+Examples of the webhook handshake
+For an example of how all of this might be implemented in code, see our sample webhook server implementation in Node.js and Python.
+
+Filtering
+Webhook events will "propagate up" from contained objects through to parent objects. For example, changes to comments will be sent to webhooks on the parent task and to ones on the task's projects. This way, a webhook on a project will be notified of all changes that occur in all of its tasks, subtasks of those tasks, and comments on those tasks and subtasks.
+
+This can be a lot of data, some of which might not be relevant to a particular integration, so Asana's webhooks have a filtering feature which allows integrations to specify only the types of changes that they care about. By specifying the list of webhook filters on webhook creation, an integration can select just the subset of events it wants to receive. That is, when filters are specified on the webhook, events will only be delivered if they pass any of the filters specified when creating the webhook.
+
+To reduce the volume of data to transfer, webhooks created on team, portfolio, goal or workspace must specify filters (i.e., we refer to these as higher-level webhooks). In addition, the set of event filters that can be placed on a team-level or workspace-level webhook is more limited than filters for webhooks that are created on lower-level resources:
+
+Webhook events from tasks, subtasks, and stories won't be propagated to these higher-level webhooks, so all changes on these resources are automatically filtered out.
+Webhook events from project resources can be filtered for these actions: added, removed, deleted, undeleted, and changed.
+Webhook events from team_membership resources can be filtered to actions added and removed.
+Webhook events from goalresources can be filtered to added and removed.
+Webhook events from workspace_membership resources can be filtered to added and removed.
+Webhook events from portfolio resources can be filtered to added.
+Filtering: Higher-level Webhooks
+When creating webhooks for higher-level resources—Workspace, Portfolio, Team, and Goal—you must specify filters that define which events will trigger the webhook. Only certain combinations of resource types and actions are supported.
+
+The table below lists the allowed resource types and their corresponding actions:
+
+Resource Type	Allowed Actions
+Goal	added, removed, deleted, undeleted, changed
+Portfolio	added, removed, deleted
+Project	added, removed, deleted, undeleted, changed
+Project Template	added, removed, deleted, undeleted, changed
+Team Membership	added, removed
+Workspace Membership	added, removed
+Example
+The following filter configuration triggers the webhook when projects are either added to or removed from the parent object (e.g., a portfolio):
+
+JSON
+
+{
+  "filters": [
+    {
+      "resource_type": "project",
+      "action": "added"
+    },
+    {
+      "resource_type": "project",
+      "action": "removed"
+    }
+  ]
+}
+Actions
+Actions define the type of action that was taken on the resource to trigger an event for your webhook. When you receive a webhook event, there will be an associated action in the event response that indicates the action that triggered the event. Additionally, actions are used in webhook filters. You can specify an action and a resource_type in the filters parameter when establishing a webhook so that you will only receive events matching the action specified for the resource in your filter.
+
+The following is a list of actions that we support:
+
+added - a new resource was created
+changed - the resource was modified
+deleted - the resource itself was deleted
+removed - the resource was removed from a parent
+undeleted - the deletion of the resource was undone
+Resources and actions
+Below is a list of resources and actions that can trigger an event for those resources. This is not an exhaustive list, but should cover the most common use cases.
+
+Attachment - deleted, undeleted
+Goal - added, changed, removed, deleted, undeleted
+Portfolio - added, deleted, removed
+Project - added, changed, deleted, removed, undeleted
+Project Membership - added, removed
+Project Template Configuration - added, deleted, removed
+Project Template Configuration Membership - added, removed
+Section - added, changed, deleted, undeleted
+Story: type: <all other types> added, removed, undeleted
+Story: type: comment added, changed, removed, undeleted
+Tag - added, changed, deleted, undeleted
+Task - added, changed, deleted, removed, undeleted
+Team - added, changed, deleted
+Team Membership - added, removed
+Time Tracking Entry - added, changed, deleted
+Workspace - changed
+Workspace Memberships - added, removed
+For example, let's say you establish a webhook for an attachment by providing the GID of an attachment in your resource parameter. This means that based on the resource and action definition for attachment above, a deleted or an undeleted action will trigger your attachment webhook.
+
+Events
+Receiving events
+Because multiple events often happen in short succession, a webhook payload is designed to be able to transmit multiple events at once. The schema of these events is described in event.
+
+The HTTP POST that the target receives contains:
+
+An X-Hook-Signature header, which allows verifying that the payload is genuine. The signature is a SHA256 HMAC signature computed on the request body using the shared secret transmitted during the handshake . Verification is strongly recommended, as it would otherwise be possible for an attacker to POST malicious payload to the same endpoint.
+A JSON body with a single key, events, containing an array of the events that have occurred since the last webhook delivery. Note: this list may be empty, as periodically we send a"heartbeat" webhook to verify that the endpoint is still available.
+Note that events are "compact" and contain only some basic details of the change, rather than containing the entire resource. We expect integrations to make additional requests to the API to retrieve the latest state from Asana.
+
+
+Timing
+Events are delivered in under a minute on average. Most events are delivered within 10 minutes. In exceptional circumstances, an event may arrive after more than 10 min. If your service relies on real-time processing of Asana webhooks, we recommend that you examine the created_at field on events before processing to ensure the event is still relevant for your needs.
+
+Story consolidation
+When a task is updated, Asana may create a story (comment) and append it to its list of activities. However, it's common for a task to be quickly updated several times. If the same action occurs within one hour, the system may consolidate these stories so that only the final result appears in the list of activities. Without story consolidation, a task's activity list would quickly fill with all the in-between states.
+
+For example, if a user moves a task from one section to another, they may see a story appear similar to:
+
+Name moved this task from 'Section 1' to 'Section 2' in Project
+
+However, if they decide a few moments later that it would be better to move the task to another section, the system may replace the previous story with a new story:
+
+Name moved this task from 'Section 1' to 'Section 3' in Project
+
+Story consolidation example: the first story is replaced with the second
+Story consolidation example: the first story is replaced with the second
+
+
+Why it matters
+As a task is updated, the system generates webhook events. However, it is important to note that your service may receive an event for a story that no longer exists due to story consolidation. This awareness can help you better understand the system's behavior and adapt your integration logic accordingly.
+
+Errors and retries
+If we attempt to send a webhook payload and we receive an error status code, or the request times out, we will retry delivery with exponential backoff. In general, if your servers are not available for an hour, you can expect it to take no longer than approximately an hour after they come back before the paused delivery resumes. However, if we are unable to deliver a message for 24 hours, the webhook will be deleted.
+
+Heartbeat events
+Webhooks keep track of the last time that delivery succeeded, and this time is updated with each success (i.e, last_success_at). A delivery succeeds when your webhook server responds to a webhook event with a 200 OK or 204 No Content response code. To help facilitate this delivery succeeded tracking, webhooks have a “heartbeat” that will deliver an empty payload to your webhook server at the initial handshake , and then at every eight hours. This way, even if there is no activity on the resource, the last success time (i.e., last_success_at) will still be updated continuously.
+
+Note that if we do not receive a response to a "heartbeat" after 24 hours, we will delete that webhook connection. This means that specific webhook route will not receive future events from Asana. If you make a request for that specific webhook (i.e., GET /webhooks/{webhook_gid}), that webhook will no longer be available.
+
+Additionally, when a webhook's resource is deleted, Asana will automatically delete the webhook in 72 hours.
+
+Scenario 1: successful heartbeat (after initial handshake)
+
+Scenario 2: failed heartbeat (after initial handshake)
+
+Security
+In order to receive webhook events, your webhook endpoint needs to be accessible over the internet. As such, because your webhook endpoint is publicly accessible over the internet, it is vulnerable to receiving events that are not from Asana. To ensure that your webhook endpoint receives events from Asana, it is important to verify each request.
+
+Request verification can be done by comparing an HMAC signature generated from the X-Hook-Secret and request body to the X-Hook-Signature. When you first establish a webhook with Asana, we send your webhook endpoint an X-Hook-Secret. Once received, this X-Hook-Secret should be stored by your webhook server.
+
+When a webhook event is triggered, Asana sends along a X-Hook-Signature in the request header. At this point, your webhook server should extract the body from the request and use it along with the stored X-Hook-Secret to generate an HMAC signature. HMAC signatures can be generated using a HMAC library in your language of development and passing in the X-Hook-Secret as the secret and in the request body as the message. The generated HMAC signature should match the X-Hook-Signature sent in the request header. If these signatures differ, it can indicate that the event received was not from Asana.
+
+To read more about our X-Hook-Signature see receiving events. For examples of servers configured to verify HMAC signatures, see our example webhook servers.
+
+Permissions
+Understanding webhooks permissions is essential for effective webhook management.
+
+Webhook subscriptions can only be created by users who have access to the specific object (e.g., task). If a user loses this access—such when the user leaves the domain—the existing webhook will remain but will stop receiving events. No events will be received until access is restored.
+
+Webhooks are tied to the authorization token (e.g., personal access token, or PAT) used for their creation. If this token is deactivated or deleted, the associated webhook will also be removed, ensuring that authorization is properly maintained. Furthermore, if the user or PAT that established the webhook is deleted, the webhook will be trashed and will no longer count against the domain's webhook limit.
+
+Limits
+Webhooks have two different limits:
+
+1,000 webhooks per resource. For example, if 10 apps/users each have 100 webhooks watching the same resource, no additional webhooks can be established on that particular resource. Note that /events streams also count toward this limit
+10,000 webhooks per token. That is, a single token can have 10,000 active webhooks at any one time
+📘
+Managing webhooks limits
+If you no longer require a webhook to be active, please send a HTTP 410 response when you receive a webhook event or webhook heartbeat event. This lets us know that you no longer want to receive webhook events for this particular webhook and we will delete this webhook.
+
+Alternatively, you may send a (DELETE /webhooks/{webhook_gid}) request at anytime.
+
+Troubleshooting
+Webhook stopped receiving events
+This can happen when your registered webhook endpoint ignores incoming heartbeat events. We send periodic heartbeat events to your webhook endpoint every 8 hours to keep track of the last time that delivery succeeded. If we receive no response to heartbeat events after 24 hours, we will delete the registered webhook connection.
+
+To fix this, you will need to modify your webhook endpoint code to respond to heartbeat events and re-establish a webhook connection.
+
+Webhook seems to show duplicate events
+Issue: You may observe what appear to be "duplicate" webhook events (with different timestamps) triggered by changes to a resource.
+
+Explanation: This behavior often occurs when a webhook is registered to listen for changes on a task (e.g., updating a task's text custom fields). When users type in this field, each keystroke can generate a separate event, resulting in multiple events with different timestamps.
+
+For example, if a user types slowly, each keystroke triggers an event, making it seem like there are duplicates. However, these are legitimate events reflecting each change. Conversely, when a user types rapidly, Asana may consolidate these changes into a single event, resulting in a more streamlined notification.
+
+Recommendation: To mitigate the appearance of "duplicate" events, consider implementing logic in your webhook server to batch or handle events within a defined timeframe, such when working with text custom fields in the previous example.
+
+Computed webhook signature differs from X-Hook-Signature
+When computing your SHA256 HMAC signature, make sure to utilize the X-Hook-Secret and the full body of the request. The X-Hook-Secret can be found in the header of the initial request sent to your webhook endpoint during the initial handshake process. The full body of the request should also be used, not just a portion of the data inside the request body.
+
+Additionally, check the documentation of the library you are using to compute the SHA256 HMAC signature, as it may require you to convert the request body from an object into a string.
+
+Webhook delivery status indicators
+When you make a request to GET /webhooks/{webhook_gid}, the 200 response includes information to help you monitor and manage webhook delivery attempts. Understanding these properties can greatly assist in troubleshooting and ensuring the reliability of your webhook integrations:
+
+Property	Description
+last_failure_at	The timestamp when the webhook last received an error when sending an event to the target.
+last_failure_content	The contents of the last error response sent to the webhook when attempting to deliver events to the target.
+last_success_at	The timestamp when the webhook last successfully sent an event to the target.
+delivery_retry_count	The number of times the webhook has retried delivery of events to the target (resets after a successful attempt).
+failure_deletion_timestamp	The timestamp when the webhook will be deleted if there is no successful attempt to deliver events to the target
+next_attempt_after	The timestamp after which the webhook will next attempt to deliver an event to the target.
+Sample 200 response:
+JSON
+
+{
+  "data": {
+    "gid": "12345",
+    "resource_type": "webhook",
+    "active": false,
+    "resource": {
+      "gid": "12345",
+      "resource_type": "task",
+      "name": "Bug Task"
+    },
+    "target": "https://example.com/receive-webhook/7654",
+    "created_at": "2012-02-22T02:06:58.147Z",
+    "last_failure_at": "2012-02-22T02:06:58.147Z",
+    "last_failure_content": "500 Server Error\\n\\nCould not complete the request",
+    "last_success_at": "2012-02-22T02:06:58.147Z",
+    "delivery_retry_count": 3,
+    "next_attempt_after": "2012-02-22T02:06:58.147Z",
+    "failure_deletion_timestamp": "2012-02-22T02:06:58.147Z",
+    "filters": [
+      {
+        "resource_type": "task",
+        "resource_subtype": "milestone",
+        "action": "changed",
+        "fields": [
+          "due_at",
+          "due_on",

@@ -57,3 +57,4 @@ def generate_attachments(conn, snapshot_id, tasks):
 
     conn.commit()
 
+

@@ -48,3 +48,4 @@ def generate_sections(conn, snapshot_id, projects):
     conn.commit()
     return sections
 
+

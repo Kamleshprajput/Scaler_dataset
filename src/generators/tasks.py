@@ -5,7 +5,7 @@ import random
 
 CREATED_VIA = ["manual", "integration", "automation"]
 
-# Human-like task names
+# Expanded human-like task names based on reference files
 TASK_TEMPLATES = [
     "Review {item} proposal",
     "Update {item} documentation",
@@ -32,6 +32,21 @@ TASK_TEMPLATES = [
     "Analyze {item} metrics",
     "Set up {item} monitoring",
     "Migrate {item} database",
+    "Coordinate {item} workflow",
+    "Automate {item} process",
+    "Integrate {item} with external tool",
+    "Build {item} integration",
+    "Set up {item} webhook",
+    "Configure {item} automation rule",
+    "Create {item} template",
+    "Generate {item} report",
+    "Track {item} progress",
+    "Manage {item} requests",
+    "Process {item} tickets",
+    "Review {item} status",
+    "Update {item} custom fields",
+    "Sync {item} data",
+    "Export {item} to CSV",
 ]
 
 TASK_ITEMS = [
@@ -50,6 +65,21 @@ TASK_ITEMS = [
     "user interface",
     "mobile app",
     "web dashboard",
+    "workflow automation",
+    "custom fields",
+    "project templates",
+    "task assignments",
+    "due date tracking",
+    "status updates",
+    "goal tracking",
+    "campaign metrics",
+    "customer data",
+    "integration endpoints",
+    "webhook handlers",
+    "automation rules",
+    "report generation",
+    "data synchronization",
+    "form submissions",
 ]
 
 TASK_DESCRIPTIONS = [
@@ -62,6 +92,17 @@ TASK_DESCRIPTIONS = [
     "Technical debt cleanup",
     "Performance improvement",
     "Security enhancement",
+    "Integration with third-party tool required",
+    "Automation workflow needs to be set up",
+    "Custom field configuration needed",
+    "Part of larger program initiative",
+    "Dependent on upstream task completion",
+    "Requires stakeholder review",
+    "Needs testing before deployment",
+    "Documentation update required",
+    "Related to compliance requirements",
+    "Part of sprint planning",
+    "Customer-facing feature",
     "",
     "",
     "",

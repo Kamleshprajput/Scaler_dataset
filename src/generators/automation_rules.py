@@ -73,3 +73,4 @@ def generate_automation_rules(conn, num_rules=25):
 
     conn.commit()
 
+

@@ -1,0 +1,857 @@
+Automotive-2
+Education-6
+Energy-2
+Finance-6
+Food and Hospitility-6
+Government-2
+Healthcare-3
+manufacturing-5
+Marketing and Creative service-6
+media and entertainment-17
+non profit-33
+retail and consumer-25
+technology-43
+telecom-3
+travel and transport-2
+total=161
+--------------------------
+1...Automotive
+a.
+--Company size
+Enterprise
+--Key workflows
+Project management
+Product launches
+Goal tracking & OKRs
+Cross Department Communication
+--Key features
+AI Studio
+Portfolios
+Forms
+b.
+--Company size
+Enterprise
+--Key workflows
+New employee onboarding
+--Key features
+Templates
+-----------------------------
+Education
+a.
+--Company size
+Enterprise
+--Key workflows
+Goal tracking & OKRs
+Annual Planning
+Work requests
+--Key features
+Goals
+Forms
+Rules
+--Key integrations
+Google 
+
+b.
+--Company size
+Small Business
+--Key workflows
+Goal tracking & OKRs
+Project management
+Product development
+Client management
+--Key features
+Goals
+Projects
+
+c.
+--Company size
+Small business
+--Key workflows
+Project management
+--Key features
+Project views
+Reporting dashboards
+--Key integrations
+Google
+----------------------------------------
+Energy:
+a.
+--Company size
+Mid-Market
+--Key workflows
+Program management
+--Key features
+Project views
+Projects
+
+b.
+--Company size
+Enterprise
+--Key workflows
+Work requests
+Campaign management
+Goal tracking & OKRs
+--Key features
+Forms
+Workflows
+
+------------------------------------
+Finance:-
+
+a.
+--Company size
+Enterprise
+--Industry
+Financial services
+--Key workflows
+Program management
+Work requests
+Product launches
+--Key features
+Asana AI
+Rules
+Templates
+--Key integrations
+Asana developers
+
+b.
+--Company size
+Enterprise
+--Industry
+Financial services
+--Key workflows
+Work requests
+Program management
+Reporting
+IT requests
+--Key features
+Asana AI
+Forms
+Rules
+--Key integrations
+
+Microsoft 365
+PowerBI
+Jiracloud
+
+c.
+--Company size
+Mid-Market
+--Industry
+Financial services
+--Key workflows
+Reporting
+Project management
+Customer implementation
+--Key features
+Templates
+Reporting dashboards
+Workflows
+--Key integrations
+Salesforce
+
+-----------------------------------
+Food and Hospitility
+a.
+--Company size
+Enterprise
+--Industry
+Food & hospitality
+--Key workflows
+Project management
+Product development
+--Key features
+Projects
+Forms
+--Key integrations
+
+Google Workspace 
+zapier
+
+b.
+--Company size
+Enterprise
+--Industry
+Food & hospitality
+--Key workflows
+Program management
+Project management
+Software deployments
+--Key features
+Rules
+Reporting dashboards
+Portfolios
+--Key integrations
+
+PowerBI Logo
+Microsoft teams
+Instagantt logo
+
+c.
+--Company size
+Enterprise
+--Industry
+Food & hospitality
+--Key workflows
+Campaign management
+--Key features
+Workflows
+Projects
+Rules
+-----------------------------------
+Government
+a.
+--Company size
+Enterprise
+--Industry
+Government
+--Key workflows
+Creative production
+Event planning
+--Key features
+Templates
+
+b.
+--Company size
+Mid-Market
+--Industry
+Government
+--Key workflows
+Event planning
+Program management
+Work requests
+Project management
+--Key features
+Templates
+------------------------------------
+Healthcare
+a.
+--Company size
+Mid-Market
+--Industry
+Healthcare
+--Key workflows
+Work requests
+Campaign management
+Project management
+--Key features
+Forms
+Reporting dashboards
+Templates
+--Key integrations
+Asana
+
+b.
+--Company size
+Enterprise
+--Industry
+Healthcare
+--Key workflows
+Campaign management
+Creative production
+Annual Planning
+--Key features
+Reporting dashboards
+Portfolios
+Rules
+----------------------------------
+Manufacturing
+a.
+--Company size
+Enterprise
+--Industry
+Manufacturing
+--Key workflows
+Goal tracking & OKRs
+Project management
+Product development
+Work requests
+--Key features
+Rules
+Forms
+Portfolios
+Templates
+--Key integrations
+Google
+
+b.
+--Company size
+Enterprise
+--Industry
+Manufacturing
+--Key workflows
+Goal tracking & OKRs
+Program management
+--Key features
+Templates
+--Key integrations
+Microsoft Teams
+
+c.
+--Company size
+Enterprise
+--Industry
+Manufacturing
+--Key workflows
+Project management
+Product roadmaps
+IT requests
+--Key features
+AI Studio
+-------------------------------------------
+Marketing 
+a.
+--Company size
+Small business
+--Industry
+Marketing & creative services
+--Key workflows
+Client management
+Project management
+--Key features
+Project views
+--Key integrations
+Google
+
+b.
+--Company size
+Mid-Market
+--Industry
+Marketing & creative services
+--Key workflows
+Work requests
+Project management
+Client management
+Creative requests
+Creative production
+--Key features
+Rules
+Forms
+Projects
+Messaging
+Bundles
+--Key integrations
+dropbox
+hubspot
+
+c.
+--Company size
+Small Business
+--Industry
+Marketing & creative services
+--Key workflows
+Client management
+--Key features
+Forms
+Workload
+--Key integrations
+
+everhour 
+slack
+Google Workspace 
+----------------------------------------------------------
+Media and entertainment
+a.
+--Company size
+Enterprise
+--Industry
+Media & entertainment
+--Key workflows
+Creative production
+--Key features
+Portfolios
+Templates
+--Key integrations
+Slack
+Zapier
+
+b.
+--Company size
+Enterprise
+--Industry
+Media & entertainment
+--Key workflows
+Creative production
+Campaign management
+Editorial calendars
+--Key features
+Portfolios
+Project views
+--Key integrations
+Slack
+
+c.
+--Company size
+Mid-Market
+--Industry
+Media & entertainment
+--Key workflows
+Work requests
+Project management
+Program management
+--Key features
+Reporting dashboards
+--Key integrations
+Microsoft teams
+Jira Cloud 
+
+d.
+--Company size
+Enterprise
+--Industry
+Media & entertainment
+--Key workflows
+Work requests
+Project management
+--Key features
+Rules
+Forms
+Asana AI
+
+e.
+--Company size
+Mid-Market
+--Industry
+Media & entertainment
+--Key workflows
+Event planning
+Campaign management
+Work requests
+--Key features
+Forms
+Templates
+Rules
+---------------------------------------------
+Non profit
+a.
+--Company size
+Enterprise
+--Industry
+Nonprofit
+--Key workflows
+Campaign management
+Creative production
+Work requests
+--Key features
+Templates
+Forms
+Custom fields
+--Key integrations
+Google Drive
+Microsoft Outlook 
+
+b.
+--Company size
+Mid-Market
+--Industry
+Nonprofit
+--Key workflows
+Work requests
+Reporting
+Project management
+--Key features
+Forms
+Reporting dashboards
+Rules
+
+c.
+--Company size
+Enterprise
+--Industry
+Nonprofit
+--Key workflows
+Goal tracking & OKRs
+Program management
+Project management
+--Key features
+Asana AI
+Templates
+Rules
+--Key integrations
+
+Microsoft Teams 
+Microsoft Outlook 
+
+d.
+--Company size
+Enterprise
+Industry
+Nonprofit
+--Key workflows
+Work requests
+Project management
+--Key features
+Reporting dashboards
+Forms
+Templates
+--Key integrations
+PowerBI
+
+e.
+--Company size
+Small business
+--Industry
+Nonprofit
+--Key workflows
+Event planning
+Goal tracking & OKRs
+Meeting agendas
+--Key features
+Goals
+--Key integrations
+Zapier
+
+f.
+--Company size
+Small Business
+--Industry
+Nonprofit
+--Key workflows
+Meeting agendas
+New employee onboarding
+Work requests
+--Key features
+Templates
+
+g.
+--Company size
+Mid-Market
+--Industry
+Nonprofit
+--Key workflows
+One-on-Ones
+Work requests
+Project management
+--Key features
+Project views
+----------------------------------------
+Retail and consumer
+a.
+--Company size
+Enterprise
+--Industry
+Retail & consumer goods
+--Key workflows
+Project management
+--Key features
+Portfolios
+Reporting dashboards
+Rules
+--Key integrations
+Google
+
+b.
+--Company size
+Mid-Market
+--Industry
+Retail & consumer goods
+--Key workflows
+Campaign management
+Creative production
+IT requests
+--Key features
+Templates
+Forms
+Custom fields
+
+c.
+--Company size
+Enterprise
+--Industry
+Retail & consumer goods
+--Key workflows
+Project management
+Reporting
+Editorial calendars
+Social media calendars
+--Key features
+Portfolios
+Tasks
+Custom fields
+--Key integrations
+Microsoft 365
+Outlook
+Figma 
+
+d.
+--Company size
+Small Business
+--Industry
+Retail & consumer goods
+--Key workflows
+Project management
+Product launches
+Editorial calendars
+--Key features
+Workflows
+Rules
+Status updates
+--Key integrations
+
+Google Drive
+Jira Cloud
+Slack 
+
+e.
+--Company size
+Enterprise
+--Industry
+Retail & consumer goods
+--Key workflows
+Creative production
+--Key features
+Rules
+Forms
+--Key integrations
+Asana
+
+f.
+--Company size
+Enterprise
+--Industry
+Retail & consumer goods
+--Key workflows
+Product launches
+--Key features
+Portfolios
+Projects
+Status updates
+--Key integrations
+PowerBI
+
+g.
+--Company size
+Enterprise
+--Industry
+Retail & consumer goods
+--Key workflows
+Creative production
+Creative requests
+--Key features
+Portfolios
+Templates
+Workload
+------------------------------------
+technology
+a.
+--Company size
+Enterprise
+--Industry
+Technology
+--Key workflows
+Product launches
+Campaign management
+Work requests
+--Key features
+Reporting dashboards
+Workload
+Rules
+--Key integrations
+Jiracloud
+
+b.
+--Company size
+Enterprise
+--Industry
+Technology
+--Key workflows
+Project management
+Product development
+--Key features
+Projects
+Forms
+--Key integrations
+Zendesk
+hubspot
+
+c.
+--Company size
+Enterprise
+--Industry
+Technology
+--Key workflows
+Work requests
+--Key features
+Portfolios
+Workflows
+Reporting dashboards
+--Key integrations
+PowerBI
+
+c.
+--Company size
+Enterprise
+--Industry
+Technology
+--Key workflows
+Program management
+Work requests
+Project management
+--Key features
+Forms
+Portfolios
+Templates
+--Key integrations
+Jiracloud
+Google Workspace
+
+d.
+--Company size
+Enterprise
+--Industry
+Technology
+--Key workflows
+Creative production
+Program management
+Project management
+--Key features
+Rules
+Forms
+Reporting dashboards
+--Key integrations
+Jiracloud
+
+e.
+--Company size
+Mid-Market
+--Industry
+Technology
+--Key workflows
+New employee onboarding
+Product development
+--Key features
+Project views
+Templates
+
+f.
+--Company size
+Enterprise
+--Industry
+Technology
+--Key workflows
+New employee onboarding
+One-on-Ones
+Goal tracking & OKRs
+Program management
+--Key features
+Portfolios
+Project views
+Templates
+
+f.
+--Company size
+Mid-market
+--Industry
+Technology
+--Key workflows
+Bug tracking
+Project management
+--Key features
+Portfolios
+Reporting dashboards
+
+g.
+--Company size
+Mid-market
+--Industry
+Technology
+--Key workflows
+Sprint planning
+Project management
+--Key features
+Portfolios
+--Key integrations
+PowerBI
+
+h.
+--Company size
+Enterprise
+--Industry
+Technology
+--Key workflows
+Event planning
+Work requests
+--Key features
+Reporting dashboards
+
+i.
+--Company size
+Mid-Market
+--Industry
+Technology
+--Key workflows
+Program management
+Meeting agendas
+Goal tracking & OKRs
+--Key features
+Custom fields
+Templates
+
+-----------------------------------------------------
+Telecommunications
+a.
+--Company size
+Enterprise
+--Industry
+Telecommunications
+--Key workflows
+Campaign management
+New employee onboarding
+--Key features
+Rules
+Project views
+Forms
+Workload
+--Key integrations
+Microsoft Office Connector
+
+b.
+--Company size
+Enterprise
+--Industry
+Telecommunications
+--Key workflows
+Work requests
+Campaign management
+--Key features
+Rules
+Forms
+Workflows
+---------------------------------------
+Travel and transport
+a.
+--Company size
+Small Business
+--Industry
+Travel & transportation
+--Key workflows
+Event planning
+Program management
+--Key features
+Forms
+Portfolios
+Reporting dashboards
+--Key integrations
+Microsoft Office connector
+
+b.
+--Company size
+Small Business
+--Industry
+Travel & transportation
+--Key workflows
+Event planning
+Meeting agendas
+Program management
+--Key features
+Templates
+------------------------------------
+
+
+
+
+
+
+
+
+
