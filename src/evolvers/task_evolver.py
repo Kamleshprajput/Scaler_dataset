@@ -37,7 +37,9 @@ def evolve_tasks(conn, old_snapshot, new_snapshot):
             -- completed_at must always be AFTER created_at
             CASE
                 WHEN completed = 0 AND abs(random()) % 5 = 0
-                THEN datetime(created_at, '+' || (1 + abs(random()) % 30) || ' days')
+                THEN datetime(created_at, '+' || CAST(1 + abs(random()) % 30 AS TEXT) || ' days')
+                WHEN completed = 1 AND completed_at IS NOT NULL AND completed_at < created_at
+                THEN datetime(created_at, '+' || CAST(1 + abs(random()) % 30 AS TEXT) || ' days')
                 ELSE completed_at
             END
         FROM tasks

@@ -14,7 +14,7 @@ def validate_temporal_consistency(conn, snapshot_id):
 
     rows = cur.fetchall()
     if rows:
-        print("❌ Temporal violations detected:")
+        print("ERROR: Temporal violations detected:")
         for r in rows:
             print(r)
         raise ValueError("Temporal validation failed")
